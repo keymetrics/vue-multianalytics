@@ -105,7 +105,8 @@ Vue.use(VueMultianalytics, {
     vueRouter: router, //  Pass the router instance to automatically sync with router (optional)
     preferredProperty: 'name', // By default 'path' and related with vueRouter (optional)
     ignoredViews: ['homepage'], // Views that will not be tracked
-    ignoredModules: ['ga'] // Modules that will not send route change events. The event sent will be this.$ma.trackView({viewName: 'homepage'}, ['ga'])
+    ignoredModules: ['ga'], // Modules that will not send route change events. The event sent will be this.$ma.trackView({viewName: 'homepage'}, ['ga'])
+    properties: {} // Pass custom properties to the trackView method (only uselful for Segment & Mparticule modules)
   }
 })
 
@@ -213,7 +214,8 @@ export default {
 /**
   * Dispatch a view using the screen name
   * params should contain
-  * @param viewName
+  * @param viewName the name of the view to track
+  * @param properties send custom properties (only uselful for Segment & Mparticule modules)
   */
 
 this.$ma.trackView({screenName: 'Homepage'})  
