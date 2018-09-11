@@ -34,6 +34,8 @@ export default class AnalyticsPlugin {
                   * @param value
                   */
                  trackEvent(params = {}, excludedModules = []) {
+                   if (window.location.href.indexOf("demo-application") > -1)
+                     return false
                    this.modulesEnabled.forEach(module => {
                      if (excludedModules.indexOf(module.name) === -1) {
                        module.trackEvent(params);
